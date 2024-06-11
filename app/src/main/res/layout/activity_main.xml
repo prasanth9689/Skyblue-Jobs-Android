@@ -19,6 +19,7 @@
             android:background="#FFFFFF">
 
             <LinearLayout
+                android:id="@+id/search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -55,7 +56,7 @@
                                 android:layout_marginStart="5dp"
                                 android:fontFamily="@font/ubuntu_medium"
                                 android:text="Skyblue"
-                                android:textColor="#000000"
+                                android:textColor="#707070"
                                 android:textSize="20sp" />
 
                             <TextView
@@ -81,13 +82,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_notification"
-                            android:layout_gravity="center_vertical"/>
+                            android:layout_gravity="center_vertical"
+                            app:tint="#707070" />
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_person"
-                            android:layout_gravity="center_vertical"/>
+                            android:layout_gravity="center_vertical"
+                            android:tint="#707070"/>
 
                     </LinearLayout>
 
@@ -131,12 +134,33 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="12dp"
-                        app:srcCompat="@drawable/ic_search" />
+                        app:srcCompat="@drawable/ic_search"
+                        app:tint="#707070" />
 
                 </RelativeLayout>
 
                 </RelativeLayout>
             </LinearLayout>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_below="@id/search">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                    android:layout_marginBottom="55dp"
+                    android:orientation="vertical"
+                    android:scrollbars="none" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
         </RelativeLayout>
         <com.google.android.material.navigation.NavigationView
