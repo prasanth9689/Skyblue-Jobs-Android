@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="@color/white"
     android:background="@drawable/bg_card_view"
@@ -19,15 +19,72 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-         <TextView
-             android:id="@+id/title"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:hint="Android developer"
-             android:textColor="@color/black"
-             android:textSize="17sp"
-             android:textColorHint="@color/black"
-             android:fontFamily="@font/ubuntu_medium"/>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_medium"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/ubuntu"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_location_on"
+                    app:tint="#707070"/>
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/black"
+                    android:textColorHint="#575A5C"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_wallet"
+                    app:tint="#707070"/>
+
+                <TextView
+                    android:id="@+id/ctc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ubuntu"
+                    android:layout_marginStart="3dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#575A5C"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>

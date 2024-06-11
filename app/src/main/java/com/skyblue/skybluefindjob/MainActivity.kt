@@ -35,11 +35,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-
        viewModel = ViewModelProvider(this, MyViewModelFactory(MainRepository(retrofitService))).get(MainViewModel::class.java)
-     //   viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-
-      //  binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager
@@ -54,14 +50,6 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(context, "error!", Toast.LENGTH_SHORT).show()
         })
         viewModel.getJobsList()
-
-
-
-
-
-
-
-
 
         binding.apply {
             toggle = ActionBarDrawerToggle(this@MainActivity, drawerLayout, R.string.open, R.string.close)

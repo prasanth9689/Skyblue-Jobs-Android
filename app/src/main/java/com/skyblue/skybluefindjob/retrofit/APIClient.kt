@@ -8,7 +8,7 @@ import retrofit2.http.GET
 
 interface APIClient {
 
-    @GET("/skyblue/get_common_data.php")
+    @GET("/get_jobs.php")
     fun getJobsList(): Call<List<Jobs>>
 
     companion object {
@@ -19,7 +19,7 @@ interface APIClient {
 
             if (retrofitService == null) {
                 val retrofit = Retrofit.Builder()
-                    .baseUrl("https://skyblue.co.in")
+                    .baseUrl("https://jobs.skyblue.co.in")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                 retrofitService = retrofit.create(APIClient::class.java)

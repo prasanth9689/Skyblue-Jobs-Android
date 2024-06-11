@@ -20,14 +20,14 @@ class MainAdapter: RecyclerView.Adapter<MainViewHolder>() {
 
         val binding = ModelJobsListHomeBinding.inflate(inflater, parent, false)
         return MainViewHolder(binding)
-
-        val debug = ""
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val movie = movies[position]
-        holder.binding.title.text = movie.user_name
-
+        holder.binding.title.text = movie.title
+        holder.binding.company.text = movie.company_name
+        holder.binding.location.text = movie.location
+        holder.binding.ctc.text = movie.ctc
     }
 
     override fun getItemCount(): Int {
