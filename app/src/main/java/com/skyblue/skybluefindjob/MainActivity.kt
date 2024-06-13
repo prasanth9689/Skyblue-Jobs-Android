@@ -3,33 +3,29 @@ package com.skyblue.skybluefindjob
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.skyblue.skybluefindjob.adapter.MainAdapter
 import com.skyblue.skybluefindjob.databinding.ActivityMainBinding
-import com.skyblue.skybluefindjob.model.Jobs
 import com.skyblue.skybluefindjob.repository.MainRepository
 import com.skyblue.skybluefindjob.retrofit.APIClient
-import com.skyblue.skybluefindjob.retrofit.APIInterface
 import com.skyblue.skybluefindjob.viewmodelactory.MyViewModelFactory
 import com.skyblue.skybluefindjob.viewmodels.MainViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var context: Context = this@MainActivity
-    private lateinit var toggle: ActionBarDrawerToggle
     lateinit var viewModel: MainViewModel
     val adapter = MainAdapter()
     private val retrofitService = APIClient.getInstance()
+    lateinit var  actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.jobsList.observe(this, Observer {
             Log.e("res__", ""+ it)
             adapter.setJobsList(it)
+            binding.shimmerLayout.visibility  = View.GONE
+            binding.recyclerView.visibility = View.VISIBLE
         })
 
         viewModel.erroMessage.observe(this, Observer {
@@ -51,39 +49,31 @@ class MainActivity : AppCompatActivity() {
         })
         viewModel.getJobsList()
 
-        binding.apply {
-            toggle = ActionBarDrawerToggle(this@MainActivity, drawerLayout, R.string.open, R.string.close)
-            drawerLayout.addDrawerListener(toggle)
-            toggle.syncState()
+        onClickListener()
 
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-            navView.setNavigationItemSelectedListener {
-                when (it.itemId) {
-                    R.id.firstItem -> {
-                        Toast.makeText(context, "First Item Clicked", Toast.LENGTH_SHORT).show()
-                    }
-                    R.id.secondtItem -> {
-                        Toast.makeText(context, "Second Item Clicked", Toast.LENGTH_SHORT).show()
-                    }
-                    R.id.thirdItem -> {
-                        Toast.makeText(context, "third Item Clicked", Toast.LENGTH_SHORT).show()
-                    }
-                }
-                true
-            }
-        }
-
-        binding.menu.setOnClickListener{
-            binding.drawerLayout.openDrawer(GravityCompat.START)
-        }
 
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)){
-            true
+
+
+    private fun openDrawer(drawerLayout: DrawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START)
+    }
+
+    fun closeDrawer(drawerLayout: DrawerLayout) {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
         }
-        return super.onOptionsItemSelected(item)
+    }
+
+    private fun onClickListener() {
+        binding.menu.setOnClickListener(){
+            openDrawer(binding.drawerLayout)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        closeDrawer(binding.drawerLayout)
     }
 }

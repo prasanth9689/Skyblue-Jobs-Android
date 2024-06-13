@@ -7,5 +7,61 @@
     android:background="@color/white"
     tools:context=".SplashActivity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="Skyblue"
+            android:textColor="@color/black"
+            android:textSize="50sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find jobs"
+            android:textColor="@color/black"
+            android:layout_gravity="end"
+            android:textSize="25sp"
+            android:fontFamily="@font/ubuntu"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_light"
+            android:text="@string/made_in_india_with"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="12dp"
+            android:contentDescription="@string/made_in_india_with"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:srcCompat="@drawable/ic_love"
+            />
+
+    </LinearLayout>
 </RelativeLayout>

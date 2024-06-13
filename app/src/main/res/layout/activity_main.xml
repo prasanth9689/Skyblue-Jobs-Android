@@ -8,9 +8,9 @@
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/drawerLayout"
         tools:context=".MainActivity">
 
         <RelativeLayout
@@ -79,18 +79,18 @@
                         android:layout_marginEnd="15dp">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:src="@drawable/ic_notification"
                             android:layout_gravity="center_vertical"
                             app:tint="#707070" />
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:src="@drawable/ic_person"
                             android:layout_gravity="center_vertical"
-                            android:tint="#707070"/>
+                            app:tint="#707070" />
 
                     </LinearLayout>
 
@@ -101,43 +101,43 @@
                     android:layout_height="50dp"
                     android:elevation="20dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp">
-
-                    <EditText
-                        android:id="@+id/edit_text"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:textCursorDrawable="@drawable/cursor_black"
-                        android:background="@drawable/edit_text_common"
-                        android:hint="@string/search"
-                        android:imeOptions="actionSearch"
-                        android:includeFontPadding="true"
-                        android:inputType="text"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:textColor="@color/black"
-                        android:textColorHighlight="#00BCD4"
-                        android:textColorHint="#C46D6D6D"
-                        android:textColorLink="#00BCD4"
-                        android:textSize="12sp"/>
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp">
 
-                    <ImageView
-                        android:id="@+id/action_search"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="12dp"
-                        app:srcCompat="@drawable/ic_search"
-                        app:tint="#707070" />
+                        <EditText
+                            android:id="@+id/edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textCursorDrawable="@drawable/cursor_black"
+                            android:background="@drawable/edit_text_common"
+                            android:hint="@string/search"
+                            android:imeOptions="actionSearch"
+                            android:includeFontPadding="true"
+                            android:inputType="text"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:textColor="@color/black"
+                            android:textColorHighlight="#00BCD4"
+                            android:textColorHint="#C46D6D6D"
+                            android:textColorLink="#00BCD4"
+                            android:textSize="12sp"/>
 
-                </RelativeLayout>
+                        <ImageView
+                            android:id="@+id/action_search"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="12dp"
+                            app:srcCompat="@drawable/ic_search"
+                            app:tint="#707070" />
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
             </LinearLayout>
@@ -154,22 +154,50 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
                     android:layout_marginBottom="55dp"
                     android:orientation="vertical"
-                    android:scrollbars="none" />
+                    android:scrollbars="none"
+                    android:visibility="gone"/>
 
             </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="MissingConstraints"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/search">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!--add  several shimmer placeholder layout -->
+                    <include layout="@layout/m_home_shimmer" />
+                    <include layout="@layout/m_home_shimmer" />
+                    <include layout="@layout/m_home_shimmer" />
+                    <include layout="@layout/m_home_shimmer" />
+                    <include layout="@layout/m_home_shimmer" />
+                    <include layout="@layout/m_home_shimmer" />
+                    <include layout="@layout/m_home_shimmer" />
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
 
         </RelativeLayout>
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navView"
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:layout_width="300dp"
             android:layout_height="match_parent"
-            app:menu="@menu/nav_menu"
-            app:headerLayout="@layout/nav_header"
             android:layout_gravity="start"
-            android:fitsSystemWindows="true"/>
+            android:background="@color/white">
+
+            <include
+                android:id="@+id/nav_drawer_layout"
+                layout="@layout/nav_header" />
+        </RelativeLayout>
+
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

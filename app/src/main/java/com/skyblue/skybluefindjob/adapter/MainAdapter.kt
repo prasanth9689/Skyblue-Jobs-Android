@@ -27,7 +27,7 @@ class MainAdapter: RecyclerView.Adapter<MainViewHolder>() {
         holder.binding.title.text = movie.title
         holder.binding.company.text = movie.company_name
         holder.binding.location.text = movie.location
-        holder.binding.ctc.text = movie.ctc
+        holder.binding.ctc.text = movie.exp
     }
 
     override fun getItemCount(): Int {

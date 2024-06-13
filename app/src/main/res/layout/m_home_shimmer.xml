@@ -21,22 +21,24 @@
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ubuntu_medium"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                android:background="@color/shimmer_placeholder"/>
 
             <TextView
                 android:id="@+id/company"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/ubuntu"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:background="@color/shimmer_placeholder"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -47,18 +49,20 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_location_on"
+                    android:background="@color/shimmer_placeholder"
                     app:tint="#707070"/>
 
                 <TextView
                     android:id="@+id/location"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:fontFamily="@font/ubuntu"
+                    android:layout_gravity="center_vertical"
                     android:textColor="@color/black"
                     android:textColorHint="#575A5C"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:background="@color/shimmer_placeholder"/>
 
             </LinearLayout>
 
@@ -71,18 +75,20 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_work"
+                    android:background="@color/shimmer_placeholder"
                     app:tint="#707070"/>
 
                 <TextView
                     android:id="@+id/ctc"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ubuntu"
                     android:layout_marginStart="3dp"
                     android:textColor="@color/black"
                     android:textColorHint="#575A5C"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/shimmer_placeholder"/>
 
             </LinearLayout>
         </LinearLayout>
